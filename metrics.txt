@@ -1,0 +1,110 @@
+Sat Jan 27 06:00:50 PM EST 2024
+
+
+
+Output of vmstat: 
+--procs-- -----------------------memory---------------------- ---swap-- -----io---- -system-- ----------cpu----------
+   r    b         swpd         free         buff        cache   si   so    bi    bo   in   cs  us  sy  id  wa  st  gu
+   2    1            0     58957220       176784      4029356    0    0   266   151  537    1   1   0  99   0   0   0
+
+
+
+
+
+Output of iostat: 
+Linux 6.5.0-15-generic (j-tc) 	01/27/2024 	_x86_64_	(16 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.73    0.01    0.28    0.06    0.00   98.92
+
+Device             tps    kB_read/s    kB_wrtn/s    kB_dscd/s    kB_read    kB_wrtn    kB_dscd
+dm-0             23.74       234.65       151.04         0.00    1823713    1173884          0
+dm-1             23.65       232.96       151.04         0.00    1810537    1173884          0
+dm-2              0.02         0.55         0.00         0.00       4308          0          0
+loop0             0.00         0.02         0.00         0.00        138          0          0
+loop1             0.00         0.02         0.00         0.00        150          0          0
+loop10            0.02         0.38         0.00         0.00       2983          0          0
+loop11            0.00         0.02         0.00         0.00        141          0          0
+loop12            0.00         0.02         0.00         0.00        140          0          0
+loop13            0.00         0.02         0.00         0.00        153          0          0
+loop14            0.09         0.85         0.00         0.00       6595          0          0
+loop15            0.02         0.17         0.00         0.00       1313          0          0
+loop16            0.02         0.07         0.00         0.00        523          0          0
+loop17            0.00         0.02         0.00         0.00        139          0          0
+loop18            0.00         0.02         0.00         0.00        185          0          0
+loop19            0.00         0.02         0.00         0.00        142          0          0
+loop2             0.00         0.00         0.00         0.00         13          0          0
+loop20            0.00         0.02         0.00         0.00        158          0          0
+loop21            0.00         0.03         0.00         0.00        200          0          0
+loop22            0.28        13.80         0.00         0.00     107227          0          0
+loop23            0.00         0.02         0.00         0.00        140          0          0
+loop24            0.09         3.37         0.00         0.00      26220          0          0
+loop25            0.00         0.02         0.00         0.00        140          0          0
+loop26            0.00         0.02         0.00         0.00        142          0          0
+loop27            0.00         0.02         0.00         0.00        194          0          0
+loop3             0.00         0.00         0.00         0.00         30          0          0
+loop4             0.00         0.02         0.00         0.00        156          0          0
+loop5             0.00         0.02         0.00         0.00        153          0          0
+loop6             0.04         0.62         0.00         0.00       4838          0          0
+loop7             0.00         0.02         0.00         0.00        154          0          0
+loop8             0.07         1.16         0.00         0.00       9018          0          0
+loop9             0.00         0.02         0.00         0.00        140          0          0
+mmcblk0           0.02         0.85         0.00         0.00       6568          0          0
+nvme0n1          17.52       241.61       151.12         0.00    1877812    1174497          0
+nvme1n1           0.13         2.87         0.00         0.00      22296          1          0
+
+
+
+
+
+
+
+Output of netstat (first 15 lines): 
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 j-tc:37600              lb-140-82-113-21-:https TIME_WAIT  
+tcp        0      0 j-tc:35151              52.112.127.145:https    ESTABLISHED
+tcp        0      0 j-tc:49288              104.192.142.18:https    ESTABLISHED
+tcp        0      0 j-tc:54948              13.83.65.43:https       ESTABLISHED
+tcp        0      0 j-tc:53782              104.192.142.20:https    ESTABLISHED
+tcp        0      0 j-tc:46342              52.189.97.158:https     ESTABLISHED
+tcp        0      0 j-tc:45360              lb-140-82-113-25-:https ESTABLISHED
+tcp        0      0 j-tc:45104              13.83.65.43:https       ESTABLISHED
+tcp        0      0 j-tc:42296              cdn-185-199-111-1:https ESTABLISHED
+tcp6       0      0 j-tc:54944              2606:50c0:8003::1:https ESTABLISHED
+udp        0      0 j-tc:bootpc             Docsis-Gateway.h:bootps ESTABLISHED
+udp        0      0 j-tc:44450              cdns02.comcast.n:domain ESTABLISHED
+udp        0      0 j-tc:50118              cdns02.comcast.n:domain ESTABLISHED
+
+
+
+
+
+Output of top (20 greatest users of memory): 
+top - 18:00:56 up  2:09,  1 user,  load average: 0.24, 0.10, 0.06
+Tasks: 394 total,   1 running, 393 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni, 90.0 id, 10.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :  63984.3 total,  57575.5 free,   4343.7 used,   4107.2 buff/cache     
+MiB Swap:   1952.0 total,   1952.0 free,      0.0 used.  59640.5 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   3324 j         20   0 1133.7g 341092 125160 S   0.0   0.5   1:22.13 Vivaldi+
+   3273 j         20   0 1133.8g 333716 124228 S   0.0   0.5   0:47.43 Vivaldi+
+   3154 j         20   0   32.7g 287416 174124 S   0.0   0.4   1:02.80 vivaldi+
+   2968 j         20   0   40.9g 272128 142368 S   0.0   0.4   0:52.98 skypefo+
+   3336 j         20   0 1133.7g 234736 118664 S   0.0   0.4   0:13.75 Vivaldi+
+   3325 j         20   0 1137.8g 204272 112848 S   0.0   0.3   0:09.37 Vivaldi+
+   3231 j         20   0 1135.8g 201240 123668 S   0.0   0.3   0:51.29 Vivaldi+
+   3193 j         20   0   33.4g 192680 130336 S   0.0   0.3   1:43.45 Vivaldi+
+   2513 j         20   0  708064 163616  28108 S   0.0   0.2   0:02.42 xfdeskt+
+   5886 j         20   0 1131.6g 162940 112684 S   0.0   0.2   5:52.69 Vivaldi+
+   5851 j         20   0 1131.6g 158172 111752 S   0.0   0.2   0:01.83 Vivaldi+
+   1698 root      20   0   26.7g 153436 103344 S   0.0   0.2   3:15.79 Xorg
+   2578 j         20   0   36.8g 150040 108796 S   0.0   0.2   0:24.27 skypefo+
+   3194 j         20   0   32.4g 119840  97408 S   0.0   0.2   0:30.32 Vivaldi+
+   3230 j         20   0 1131.6g 113832  91264 S   0.0   0.2   0:00.96 Vivaldi+
+   5906 j         20   0 1131.6g 106256  86528 S   0.0   0.2   0:00.62 Vivaldi+
+   2455 j         20   0 1598000 103696  77056 S   0.0   0.2   0:15.21 xfwm4
+   2952 j         20   0   32.5g  88760  55612 S   0.0   0.1   0:09.92 skypefo+
+   3404 j         20   0   32.4g  80768  68224 S   0.0   0.1   0:00.57 Vivaldi+
+   5985 j         20   0 1131.5g  70904  55808 S   0.0   0.1   0:00.09 Vivaldi+
